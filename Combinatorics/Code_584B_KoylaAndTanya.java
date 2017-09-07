@@ -11,12 +11,6 @@ import java.util.InputMismatchException;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Built using CHelper plug-in
- * Actual solution is at the top
- *
- * @author o_panda_o(emailofpanda@yahoo.com)
- */
 public class Code_584B_KoylaAndTanya{
     public static void main(String[] args){
         InputStream inputStream=System.in;
