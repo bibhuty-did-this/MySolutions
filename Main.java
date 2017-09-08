@@ -286,6 +286,40 @@ class InputReader {
         Arrays.sort(array);
         return array;
     }
+    public int[][] nextIntMatrix(int n,int m){
+        int[][] matrix=new int[n][m];
+        for(int i=0;i<n;++i)
+            for(int j=0;j<m;++j)
+                matrix[i][j]=nextInt();
+        return matrix;
+    }
+
+    public int[][] nextIntMatrix(int n){
+        return nextIntMatrix(n,n);
+    }
+
+    public long[][] nextLongMatrix(int n,int m){
+        long[][] matrix=new long[n][m];
+        for(int i=0;i<n;++i)
+            for(int j=0;j<m;++j)
+                matrix[i][j]=nextLong();
+        return matrix;
+    }
+
+    public long[][] nextLongMatrix(int n){
+        return nextLongMatrix(n,n);
+    }
+
+    public char[][] nextCharMatrix(int n,int m){
+        char[][] matrix=new char[n][m];
+        for(int i=0;i<n;++i)
+            matrix[i]=next().toCharArray();
+        return matrix;
+    }
+
+    public char[][] nextCharMatrix(int n){
+        return nextCharMatrix(n,n);
+    }
 }
 
 class OutputWriter {
