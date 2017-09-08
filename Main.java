@@ -376,6 +376,54 @@ class OutputWriter {
         }
     }
 
+    public void print(char[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (i != 0) {
+                writer.print(' ');
+            }
+            writer.print(array[i]);
+        }
+    }
+
+    public void print(String[] array) {
+        for (int i = 0; i < array.length; i++) {
+            if (i != 0) {
+                writer.print(' ');
+            }
+            writer.print(array[i]);
+        }
+    }
+
+    public void print(int[][] matrix){
+        for(int i=0;i<matrix.length;++i){
+            println(matrix[i]);
+        }
+    }
+
+    public void print(double[][] matrix){
+        for(int i=0;i<matrix.length;++i){
+            println(matrix[i]);
+        }
+    }
+
+    public void print(long[][] matrix){
+        for(int i=0;i<matrix.length;++i){
+            println(matrix[i]);
+        }
+    }
+
+    public void print(char[][] matrix){
+        for(int i=0;i<matrix.length;++i){
+            println(matrix[i]);
+        }
+    }
+
+    public void print(String[][] matrix){
+        for(int i=0;i<matrix.length;++i){
+            println(matrix[i]);
+        }
+    }
+
     public void println(int[] array) {
         print(array);
         writer.println();
@@ -387,6 +435,16 @@ class OutputWriter {
     }
 
     public void println(long[] array) {
+        print(array);
+        writer.println();
+    }
+
+    public void println(char[] array) {
+        print(array);
+        writer.println();
+    }
+
+    public void println(String[] array) {
         print(array);
         writer.println();
     }
