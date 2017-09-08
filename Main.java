@@ -1,3 +1,5 @@
+//#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+//#parse("File Header.java")
 import java.io.Writer;
 import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
