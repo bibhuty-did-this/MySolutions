@@ -9,7 +9,7 @@ import java.io.PrintWriter;
 import java.util.StringTokenizer;
 import java.util.HashMap;
 //Your code goes here
-public class Main {	
+public class WarmupMain {
 	
 	static class ProblemSolver{
 		public void solveTheProblem(InputReader in,PrintWriter out){
