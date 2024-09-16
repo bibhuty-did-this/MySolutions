@@ -1,0 +1,22 @@
+---
+Current Topic: Strings
+---
+
+---Quarterly Exercise---
+1. Chose any topic
+2. Code the algorithm from scratch
+3. Solve 5 problems(4 medium, 1 hard)
+4. Mark it as done
+------------------------
+
+---How to approach a DSA question in interview?------------------------
+https://chatgpt.com/share/357bac17-259d-4acd-a2f6-79c19aefb86e
+-----------------------------------------------------------------------
+1. Understand the problem clearly, ask clarifying questions if needed
+2. Discuss possible approaches
+3. Choose and explain the best approach from the above
+4. Write the Code
+5. Test the solution
+6. Analyze the code
+7. Optimise if possible
+--- --------------------------------------------------------------------

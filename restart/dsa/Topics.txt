@@ -1,0 +1,44 @@
+-----------------
+Total: 9/100
+-----------------
+1. Search[1]
+    - Binary Search
+2. Sorting
+    - Merge Sort
+3. String Manipulation:[3]
+    - KMP Algorithm
+    - Rabin-Karp Algorithm
+4. Arrays:[2]
+    - 2 pointer[1]
+    - Sliding Window
+    - Intervals
+    - Kadane's Algorithm
+5. Hash Tables:[3]
+6. Matrix:[]
+    - Spiral Traversal
+7. Linked List:[1]
+8. Stack:
+9. Queue:
+10. Binary Tree:
+    - Inorder
+    - Preorder
+    - Postorder
+    - Level order
+11. Binary Search Tree:
+12. Heap:[1]
+13. Segment Tree/Fenwick Tree:
+14. Graphs:
+    - Breadth First Search
+    - Depth First Search
+    - Topological Sort
+    - Dijkstras
+    - Bellman Ford
+    - Floyd Warshall
+15. Trie:
+16. Union Find:
+17. Bitmasks:
+18. Math:[1]
+    - GCD(HCF), LCM
+19. Dynamic Programming:
+20. Backtracking:[1]
+    - Rule: first use full brute force, then optimise if asked for
