@@ -34,6 +34,7 @@
         * Make minimal changes to the existing code when you want to add a new functionality
         * Don't break things which are already working very well. 
         * Adding a wrapper on top of working code is far better than editing the core of a working code
+        * Example: In our rule engine we made the rules configurable instead of keeping it in `getState`. Imagine the amount of changes we had to do in that case. It would have messed up the core functionality all the time.
     * _**Prototype Design Pattern:**_
       * Gives you a fresh object with the changed state you are looking for without altering the current object
       * Example: 
@@ -46,6 +47,7 @@
           * You can traverse a collection without exposing its internal implementation. 
           * The client code doesn’t need to know whether the collection is an array, list, tree, etc. 
           * It provides a consistent interface to traverse different types of collections.
+    * _**Builder Design Pattern:**_
     * _**DRY Principle:**_ **D**on't **R**epeat **Y**ourself
       * Don't overfit in the name of DRY principle and messup the entire codebase
     * **Unit Test:**
