@@ -39,6 +39,15 @@
       * Example: 
         * Config cloning with complex configurations
         * Similar object cloning where diff in minimal
+    * _**Iterator Design Pattern:**_
+      * The Iterator Design Pattern simplifies how you interact with collections by separating the logic of iteration from the structure of the collection itself. This pattern encapsulates the iteration logic within a separate object (the Iterator), which you can use to move through the collection without exposing its internal details.
+      * **Why Use the Iterator Pattern?**
+        * Imagine you have different types of collections (like an ArrayList, Set, or Tree), each with its own way of storing and managing data. Without the Iterator pattern, you’d need to know the specific structure of each collection to iterate over it. This violates the Single Responsibility Principle, because you’d be mixing iteration logic with collection logic. With the Iterator pattern:
+          * You can traverse a collection without exposing its internal implementation. 
+          * The client code doesn’t need to know whether the collection is an array, list, tree, etc. 
+          * It provides a consistent interface to traverse different types of collections.
+    * _**DRY Principle:**_ **D**on't **R**epeat **Y**ourself
+      * Don't overfit in the name of DRY principle and messup the entire codebase
     * **Unit Test:**
       * Add test to check behaviour of `GamePlay`
         * **Iteration 1:** Added tests according to hard-coded algorithms of AI engine. Although it check 2 out of 3 principles i.e **_Readble_** and **_Correct_**, but it fails terribly when it comes to being **_Extensible_**. Since we've hardcoded the moves of the human we are assuming that at every next step the AI won't go there, that's totally wrong.
@@ -50,3 +59,4 @@
 ### Ad-hoc:
 * **API**: Methods to be exposed to allow limited internal state change
 * **Anti-pattern:**
+* **Approach:** Instead of finding principles and enforcing it in the code, we need to find the problems in the code and then see what principle can work best with it.
