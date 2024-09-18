@@ -15,10 +15,10 @@ public class RuleEngine {
             boolean rowComplete = true;
             String firstCharacter="-";
             for (int i = 0; i < 3; ++i) {
-                firstCharacter = tBoard.getCell(i,0);
+                firstCharacter = tBoard.getSymbol(i,0);
                 rowComplete= Objects.nonNull(firstCharacter);
                 for (int j = 1; j < 3; ++j) {
-                    if (Objects.nonNull(firstCharacter) && !Objects.equals(firstCharacter, tBoard.getCell(i,j))) {
+                    if (Objects.nonNull(firstCharacter) && !Objects.equals(firstCharacter, tBoard.getSymbol(i,j))) {
                         rowComplete = false;
                         break;
                     }
@@ -34,10 +34,10 @@ public class RuleEngine {
             // Col
             boolean colComplete = true;
             for (int i = 0; i < 3; ++i) {
-                firstCharacter = tBoard.getCell(0,i);
+                firstCharacter = tBoard.getSymbol(0,i);
                 colComplete=Objects.nonNull(firstCharacter);
                 for (int j = 1; j < 3; ++j) {
-                    if (Objects.nonNull(firstCharacter) && !Objects.equals(firstCharacter, tBoard.getCell(j,i))) {
+                    if (Objects.nonNull(firstCharacter) && !Objects.equals(firstCharacter, tBoard.getSymbol(j,i))) {
                         colComplete = false;
                         break;
                     }
@@ -52,10 +52,10 @@ public class RuleEngine {
 
 
             // Diag
-            firstCharacter = tBoard.getCell(0,0);
+            firstCharacter = tBoard.getSymbol(0,0);
             boolean diagComplete = Objects.nonNull(firstCharacter);
             for (int i = 1; i < 3; ++i) {
-                if (Objects.nonNull(firstCharacter) && !Objects.equals(firstCharacter, tBoard.getCell(i,i))) {
+                if (Objects.nonNull(firstCharacter) && !Objects.equals(firstCharacter, tBoard.getSymbol(i,i))) {
                     diagComplete = false;
                     break;
                 }
@@ -65,10 +65,10 @@ public class RuleEngine {
             }
 
             // Rev Diag
-            firstCharacter = tBoard.getCell(0,2);
+            firstCharacter = tBoard.getSymbol(0,2);
             boolean revDiagComplete = Objects.nonNull(firstCharacter);
             for (int i = 1; i < 3; ++i) {
-                if (Objects.nonNull(firstCharacter) && !Objects.equals(firstCharacter, tBoard.getCell(i,2 - i))) {
+                if (Objects.nonNull(firstCharacter) && !Objects.equals(firstCharacter, tBoard.getSymbol(i,2 - i))) {
                     revDiagComplete = false;
                     break;
                 }
@@ -80,7 +80,7 @@ public class RuleEngine {
             int countOfFilledCells=0;
             for(int i=0;i<3;++i){
                 for(int j=0;j<3;++j){
-                    if(tBoard.getCell(i,j)!=null){
+                    if(tBoard.getSymbol(i,j)!=null){
                         ++countOfFilledCells;
                     }
                 }
