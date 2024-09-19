@@ -1,5 +1,6 @@
 package api;
 
+import boards.Board;
 import boards.TicTacToeBoard;
 import game.*;
 import user.Player;
@@ -19,7 +20,7 @@ public class RuleEngine {
         if (board instanceof TicTacToeBoard) {
             TicTacToeBoard tBoard = (TicTacToeBoard) board;
             RuleSet<TicTacToeBoard> rules = ruleMap.get(TicTacToeBoard.class.getName());
-            for (Rule<TicTacToeBoard> rule : rules) {
+            for (Rule rule : rules) {
                 GameState gameState = rule.condition.apply(tBoard);
                 if (gameState.isOver()) {
                     return new GameState(true, gameState.getWinner());
@@ -42,10 +43,12 @@ public class RuleEngine {
                         Player player = new Player(players[index]);
                         b.move(new Move(new Cell(i, j), player));
                         boolean canStillWin = false;
+                        Cell forkCell = null;
                         for (int k = 0; k < 3; ++k) {
                             for (int l = 0; l < 3; ++l) {
                                 Board b1 = b.copy();
-                                b1.move(new Move(new Cell(k, l), player.flip()));
+                                forkCell = new Cell(k, l);
+                                b1.move(new Move(forkCell, player.flip()));
                                 if (getState(b1).getWinner().equals(player.flip().symbol())) {
                                     canStillWin = true;
                                     break;
@@ -61,6 +64,7 @@ public class RuleEngine {
                                     .winner(gameState.getWinner())
                                     .hasFork(true)
                                     .player(player.flip())
+                                    .forkCell(forkCell)
                                     .build();
                         }
                     }

@@ -2,7 +2,6 @@ package boards;
 
 import api.Rule;
 import api.RuleSet;
-import game.Board;
 import game.Cell;
 import game.GameState;
 import game.Move;
@@ -11,20 +10,21 @@ import java.util.Objects;
 import java.util.function.BiFunction;
 import java.util.function.Function;
 
-public class TicTacToeBoard implements Board {
+public class TicTacToeBoard implements CellBoard {
     String[][] cells=new String[3][3];
 
     public static RuleSet<TicTacToeBoard> getRules() {
         return new RuleSet<>() {{
-            add(new Rule<>(board -> outerTraversal(board::getSymbol)));
-            add(new Rule<>(board -> outerTraversal((i, j) -> board.getSymbol(j, i))));
-            add(new Rule<>(board -> traverse(i -> board.getSymbol(i, i))));
-            add(new Rule<>(board -> traverse(i -> board.getSymbol(i, 2 - i))));
-            add(new Rule<>(TicTacToeBoard::countFilledCells));
+            add(new Rule(board -> outerTraversal(board::getSymbol)));
+            add(new Rule(board -> outerTraversal((i, j) -> board.getSymbol(j, i))));
+            add(new Rule(board -> traverse(i -> board.getSymbol(i, i))));
+            add(new Rule(board -> traverse(i -> board.getSymbol(i, 2 - i))));
+            add(new Rule(board -> countFilledCells((TicTacToeBoard) board)));
         }};
 
     }
 
+    @Override
     public String getSymbol(int i, int j) {
         return cells[i][j];
     }

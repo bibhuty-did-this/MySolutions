@@ -1,6 +1,6 @@
 import api.GameEngine;
 import api.RuleEngine;
-import game.Board;
+import boards.Board;
 import game.Cell;
 import game.Move;
 import org.junit.Assert;
