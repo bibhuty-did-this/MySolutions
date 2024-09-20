@@ -61,4 +61,6 @@
 ### Ad-hoc:
 * **API**: Methods to be exposed to allow limited internal state change
 * **Anti-pattern:**
-* **Approach:** Instead of finding principles and enforcing it in the code, we need to find the problems in the code and then see what principle can work best with it.
+* **Approach:** 
+  * Instead of finding principles and enforcing it in the code, we need to find the problems in the code and then see what principle can work best with it.
+  * Instead of writing classes or following patterns first, let's focus on the functionality first and then extract it to patterns
