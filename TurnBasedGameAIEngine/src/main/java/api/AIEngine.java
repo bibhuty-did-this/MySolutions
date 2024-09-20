@@ -25,9 +25,11 @@ public class AIEngine {
             Cell suggestion;
             int threshold = 3;
             if(countMoves(board1, threshold)) {
-                suggestion = suggestBasicMove(board1);
+                suggestion = getBasicMove(board1);
             }else if(countMoves(board1, threshold+1)){
                 suggestion = getCellToPlay(player, board1);
+            }else if(player.getTimeUsedInMillis()>100000){
+                suggestion = getBasicMove(board1);
             }else{
                 suggestion = suggestOptimalMove(player, board1);
             }
@@ -102,7 +104,7 @@ public class AIEngine {
         return moves<threshold;
     }
 
-    public Cell suggestBasicMove(TicTacToeBoard board) {
+    public Cell getBasicMove(TicTacToeBoard board) {
         if(board != null){
             for(int i=0;i<3;++i){
                 for(int j=0;j<3;++j){

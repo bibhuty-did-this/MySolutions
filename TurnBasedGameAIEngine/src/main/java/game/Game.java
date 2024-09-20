@@ -6,12 +6,22 @@ import user.Player;
 import java.util.Objects;
 
 public class Game {
+
     private GameConfig gameConfig;
     private Board board;
     private Player winner;
-    private int lastMoveTimeInMillis;
-    private int maxTimePerPlayer;
-    private int maxTimePerMove;
+    private Integer lastMoveTimeInMillis;
+    private Integer maxTimePerPlayer;
+    private Integer maxTimePerMove;
+
+    public Game(GameConfig gameConfig, Board board, Player winner, int lastMoveTimeInMillis, int maxTimePerPlayer, int maxTimePerMove) {
+        this.gameConfig = gameConfig;
+        this.board = board;
+        this.winner = winner;
+        this.lastMoveTimeInMillis = lastMoveTimeInMillis;
+        this.maxTimePerPlayer = maxTimePerPlayer;
+        this.maxTimePerMove = maxTimePerMove;
+    }
 
     public void move(Move move, int timestampInMillis){
         int timeTakenSinceLastMove = timestampInMillis - lastMoveTimeInMillis;
@@ -24,26 +34,27 @@ public class Game {
     }
 
     private void moveForTimedGame(Move move, int timeTakenSinceLastMove) {
-        if(Objects.nonNull(gameConfig.timePerMove)){
-            if(moveMadeInTime(timeTakenSinceLastMove)){
-                board.move(move);
-            }else {
-                winner= move.getPlayer().flip();
-            }
+        final int currentTime, endTime;
+        if (Objects.nonNull(gameConfig.timePerMove)){
+            currentTime = timeTakenSinceLastMove;
+            endTime = maxTimePerMove;
+        }
+        else{
+            currentTime = move.getPlayer().getTimeUsedInMillis();
+            endTime = maxTimePerPlayer;
+        }
+        if(currentTime<endTime){
+            board.move(move);
         }else {
-            if (moveMadeInTime(move.getPlayer())) {
-                board.move(move);
-            } else {
-                winner = move.getPlayer().flip();
-            }
+            winner= move.getPlayer().flip();
         }
     }
 
-    private boolean moveMadeInTime(Player player){
-        return player.getTimeUsedInMillis() < maxTimePerPlayer;
+    public void setGameConfig(GameConfig gameConfig) {
+        this.gameConfig = gameConfig;
     }
 
-    private boolean moveMadeInTime(int timeTakenSinceLastMove){
-        return timeTakenSinceLastMove < maxTimePerMove;
+    public GameConfig getGameConfig() {
+        return gameConfig;
     }
 }
