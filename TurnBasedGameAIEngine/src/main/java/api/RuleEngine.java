@@ -1,12 +1,18 @@
 package api;
 
 import boards.Board;
+import boards.CellBoard;
 import boards.TicTacToeBoard;
+import boards.TicTacToeBoard.Symbol;
 import game.*;
+import placements.DefensivePlacement;
+import placements.OffensivePlacement;
 import user.Player;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
 public class RuleEngine {
 
@@ -32,40 +38,33 @@ public class RuleEngine {
         }
     }
 
-    public GameInfo getInfo(Board board) {
+    public GameInfo getInfo(CellBoard board) {
         if (board instanceof TicTacToeBoard) {
+            TicTacToeBoard ticTacToeBoard=(TicTacToeBoard)board;
             GameState gameState = getState(board);
-            String[] players = new String[]{"X", "O"};
-            for (int index = 0; index < 2; ++index) {
+            for (Symbol symbol: Symbol.values()) {
+                Player player = new Player(symbol.marker());
                 for (int i = 0; i < 3; ++i) {
                     for (int j = 0; j < 3; ++j) {
-                        Board b = board.copy();
-                        Player player = new Player(players[index]);
-                        b.move(new Move(new Cell(i, j), player));
-                        boolean canStillWin = false;
-                        Cell forkCell = null;
-                        for (int k = 0; k < 3; ++k) {
-                            for (int l = 0; l < 3; ++l) {
-                                Board b1 = b.copy();
-                                forkCell = new Cell(k, l);
-                                b1.move(new Move(forkCell, player.flip()));
-                                if (getState(b1).getWinner().equals(player.flip().symbol())) {
-                                    canStillWin = true;
-                                    break;
+                        if (Objects.nonNull(board.getSymbol(i, j))) {
+                            Cell forkCell = new Cell(i,j);
+                            TicTacToeBoard b = ticTacToeBoard.move(new Move(forkCell, player));
+                            DefensivePlacement defense=DefensivePlacement.get();
+                            Optional<Cell> defensiveCell=defense.place(b, player.flip());
+                            if(defensiveCell.isPresent()){
+                                OffensivePlacement offense=OffensivePlacement.get();
+                                Optional<Cell> offensiveCell=offense.place(b, player);
+                                if(offensiveCell.isPresent()){
+                                    return new GameInfoBuilder()
+                                            .isOver(gameState.isOver())
+                                            .winner(gameState.getWinner())
+                                            .hasFork(true)
+                                            .player(player.flip())
+                                            .forkCell(forkCell)
+                                            .build();
                                 }
                             }
-                            if (canStillWin) {
-                                break;
-                            }
-                        }
-                        if (canStillWin) {
-                            return new GameInfoBuilder()
-                                    .isOver(gameState.isOver())
-                                    .winner(gameState.getWinner())
-                                    .hasFork(true)
-                                    .player(player.flip())
-                                    .forkCell(forkCell)
-                                    .build();
+
                         }
                     }
                 }

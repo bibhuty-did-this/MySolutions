@@ -11,7 +11,20 @@ import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class TicTacToeBoard implements CellBoard {
+
+    public enum Symbol{
+        X("X"),O("O");
+        String marker;
+        Symbol(String marker){
+            this.marker=marker;
+        }
+
+        public String marker() {
+            return marker;
+        }
+    }
     String[][] cells=new String[3][3];
+    History history=new History();
 
     public static RuleSet<TicTacToeBoard> getRules() {
         return new RuleSet<>() {{
@@ -48,8 +61,15 @@ public class TicTacToeBoard implements CellBoard {
     }
 
     @Override
-    public void move(Move move) {
+    public TicTacToeBoard move(Move move) {
+        history.add(getRepresentation(this));
+        TicTacToeBoard board=copy();
         setCell(move.getCell(), move.getPlayer().symbol());
+        return board;
+    }
+
+    private Representation getRepresentation(TicTacToeBoard ticTacToeBoard) {
+        return new Representation(ticTacToeBoard);
     }
 
     @Override
@@ -58,6 +78,7 @@ public class TicTacToeBoard implements CellBoard {
         for(int i=0;i<3;++i){
             System.arraycopy(cells[i], 0, ticTacToeBoard.cells[i], 0, 3);
         }
+        ticTacToeBoard.history = history;
         return ticTacToeBoard;
     }
 

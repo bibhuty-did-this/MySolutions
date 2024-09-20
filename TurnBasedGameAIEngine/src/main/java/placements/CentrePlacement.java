@@ -15,7 +15,7 @@ public class CentrePlacement implements  Placement{
 
     }
 
-    static synchronized Placement get(){
+    static synchronized CentrePlacement get(){
         centrePlacement = (CentrePlacement) Utils.getIfNull(centrePlacement, CentrePlacement::new);
         return centrePlacement;
     }
