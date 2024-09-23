@@ -1,5 +1,6 @@
-package api;
+package strategy;
 
+import api.RuleEngine;
 import boards.TicTacToeBoard;
 import game.Cell;
 import game.Move;
@@ -7,7 +8,7 @@ import user.Player;
 
 import java.util.Objects;
 
-public class SmartStrategy extends Strategy{
+public class SmartStrategy extends Strategy {
     private RuleEngine ruleEngine=new RuleEngine();
     private BasicStrategy basicStrategy = new BasicStrategy();
     @Override

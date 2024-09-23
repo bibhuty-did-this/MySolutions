@@ -1,4 +1,4 @@
-package api;
+package strategy;
 
 import boards.TicTacToeBoard;
 import game.Cell;
@@ -8,7 +8,7 @@ import user.Player;
 
 import java.util.Optional;
 
-public class OptimalStrategy extends Strategy{
+public class OptimalStrategy extends Strategy {
     @Override
     public Cell getOptimalMove(TicTacToeBoard board, Player player) {
         Placement placement = OffensivePlacement.get();

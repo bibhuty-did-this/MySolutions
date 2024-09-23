@@ -1,6 +1,10 @@
-package api;
+package strategy;
 
 import boards.TicTacToeBoard;
+import strategy.BasicStrategy;
+import strategy.OptimalStrategy;
+import strategy.SmartStrategy;
+import strategy.Strategy;
 import user.Player;
 
 public class StrategyFactory {

@@ -1,10 +1,10 @@
-package api;
+package strategy;
 
 import boards.TicTacToeBoard;
 import game.Cell;
 import user.Player;
 
-public class BasicStrategy extends Strategy{
+public class BasicStrategy extends Strategy {
     @Override
     public Cell getOptimalMove(TicTacToeBoard board, Player player) {
         if(board != null){

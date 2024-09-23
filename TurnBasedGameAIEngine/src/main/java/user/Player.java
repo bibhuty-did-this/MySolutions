@@ -4,7 +4,7 @@ import game.User;
 
 public class Player {
 
-    private User id;
+    private User user;
 
     private int timeUsedInMillis;
     private String playerSymbol;
@@ -27,5 +27,9 @@ public class Player {
 
     public int getTimeUsedInMillis() {
         return timeUsedInMillis;
+    }
+
+    public User getUser() {
+        return user;
     }
 }
