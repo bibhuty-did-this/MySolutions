@@ -38,7 +38,7 @@ public class EmailCommand {
 
     public String getTemplate() {
         return template;
-    }=
+    }
 
     public NotificationDetails getDetails() {
         return details;
