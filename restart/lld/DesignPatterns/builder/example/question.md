@@ -1,0 +1,3 @@
+**Question:**
+
+Design a system for creating complex meal orders in a restaurant, where each meal consists of several customizable parts, such as a main dish, side dish, beverage, and dessert. The restaurant allows customers to choose or omit any part of the meal, and different types of meals may require different combinations of these parts. Ensure that the system is flexible enough to easily create a variety of meal configurations while avoiding the complexity of managing every possible combination manually.
