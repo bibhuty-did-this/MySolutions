@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.builder.example;
+package restart.lld.DesignPatterns.creational.builder.example;
 
 class Dessert {
     float brownie;

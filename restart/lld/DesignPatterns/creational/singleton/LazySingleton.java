@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.singleton;
+package restart.lld.DesignPatterns.creational.singleton;
 
 public class LazySingleton {
     // Lazy initialization - instance is created only when needed

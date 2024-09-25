@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.builder.example;
+package restart.lld.DesignPatterns.creational.builder.example;
 
 /**
  * Design a system for creating complex meal orders in a restaurant, where each meal consists of several customizable

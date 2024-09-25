@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.prototype;
+package restart.lld.DesignPatterns.creational.prototype;
 
 public class PrototypeDesignPattern {
     public static void main(String[] args) {

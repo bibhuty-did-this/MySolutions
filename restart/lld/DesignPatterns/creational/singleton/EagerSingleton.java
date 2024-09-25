@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.singleton;
+package restart.lld.DesignPatterns.creational.singleton;
 
 public class EagerSingleton {
     // Eager initialization - instance is created at the time of class loading

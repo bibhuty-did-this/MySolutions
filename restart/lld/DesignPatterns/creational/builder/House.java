@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.builder;
+package restart.lld.DesignPatterns.creational.builder;
 
 // Product class
 public class House {

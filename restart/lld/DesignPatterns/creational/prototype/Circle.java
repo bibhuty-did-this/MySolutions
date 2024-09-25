@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.prototype;
+package restart.lld.DesignPatterns.creational.prototype;
 
 class Circle implements Prototype {
     int radius;

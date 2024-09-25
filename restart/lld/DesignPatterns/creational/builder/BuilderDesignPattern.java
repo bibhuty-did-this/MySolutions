@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.builder;
+package restart.lld.DesignPatterns.creational.builder;
 public class BuilderDesignPattern {
     public static void main(String[] args) {
         House house = new House.HouseBuilder("Concrete", "Wooden")
