@@ -1,7 +1,4 @@
-package restart.lld.DesignPatterns.iterator;
-
-import java.util.ArrayList;
-import java.util.List;
+package restart.lld.DesignPatterns.behavioral.iterator;
 
 // Client code using the iterator
 public class IteratorDesignPattern {

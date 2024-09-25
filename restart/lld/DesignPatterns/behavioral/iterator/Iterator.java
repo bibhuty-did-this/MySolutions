@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.iterator;
+package restart.lld.DesignPatterns.behavioral.iterator;
 
 // Iterator interface defines basic methods to traverse the collection
 interface Iterator<T> {

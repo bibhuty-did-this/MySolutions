@@ -1,4 +1,4 @@
-package restart.lld.DesignPatterns.iterator;
+package restart.lld.DesignPatterns.behavioral.iterator;
 
 import java.util.List;
 
