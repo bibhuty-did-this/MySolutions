@@ -102,3 +102,27 @@ public class Main {
 - **Client:** The client (in this case, the `Main` class) sets the payment strategy and calls the `checkout` method to process the payment.
 
 This design allows for flexibility in adding or modifying payment methods without changing the `ShoppingCart` class.
+
+
+# Command vs. Strategy Design Patterns
+
+Both the **Command** and **Strategy** patterns encapsulate functionality into separate classes, but they have different intents and are used for different purposes. Here's a comparison between the two patterns.
+
+## Key Differences
+
+| Feature                | Command Pattern                                         | Strategy Pattern                                       |
+|------------------------|---------------------------------------------------------|--------------------------------------------------------|
+| **Purpose**             | Encapsulates a request as an object, enabling requests to be handled, queued, or undone. | Encapsulates algorithms or behaviors to make them interchangeable. |
+| **Focus**               | Focuses on executing a specific action or command.      | Focuses on selecting and executing an algorithm or behavior. |
+| **Use Case**            | Suitable for executing commands like undo/redo, queuing, and logging. | Suitable for swapping out different algorithms (e.g., sorting, compression) or behaviors at runtime. |
+| **Participants**        | Involves a **command**, **invoker**, and **receiver**.  | Involves a **strategy** and a **context** that uses the strategy. |
+| **Invoker vs. Context** | The **invoker** triggers commands without knowing their implementation. | The **context** chooses and executes a strategy without knowing its details. |
+| **Common Usage**        | Commonly used in GUI systems (e.g., button actions), transaction logs, macro recording. | Used when multiple algorithms (e.g., different payment methods, sorting techniques) need to be selected dynamically. |
+
+---
+
+## Summary
+
+- **Command Pattern**: This pattern is used when you need to encapsulate a request or operation as an object, allowing for flexibility in executing, undoing, or queuing commands. It decouples the sender of the request from the receiver, often used in scenarios like remote controls, GUIs, or macro recording.
+
+- **Strategy Pattern**: The strategy pattern encapsulates different algorithms or behaviors so that they can be switched dynamically at runtime. It is used when you want to select from a family of algorithms, such as different sorting methods or payment gateways. It promotes flexibility by allowing algorithms to vary independently from the clients that use them.
