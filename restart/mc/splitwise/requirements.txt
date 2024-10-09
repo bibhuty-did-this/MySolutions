@@ -1,0 +1,51 @@
+LLD of Splitwise:
+1. Add expense
+2. Edit expense
+3. Settle expense
+4. Add, group, edit group expense
+5. Comments in expense
+6. Activity log
+
+Core features: 1-4
+
+
+Approach:
+- Behaviour driven approach(API to DB query)
+- State driven approach(Starting from DB query to API)=>Recommended for LLD
+
+Considerations:
+=> API -> Caching -> Concurrency -> Testing
+=> Don't code the obvious pieces
+    => getUser
+    => getGroup
+    => getExpense
+=> Cache those things which are heavy are are accessed frequently:
+    => Both the APIs can be accessed concurrently leading to inconsistent data, to avoid those
+    scenario its best to make the objects immutable. Its better to give stale balanced data then
+    broken data. Eventual consistency can be achieved.
+        => getGroupExpense
+        => getGroupPaymentGraph
+
+=> Steps:
+    1. Define objects:
+        a. Naming
+        b. Composition
+        c. Interfaces
+    2. Algorithm
+    3. Test cases
+        => Try to code the testcase you have talked before
+
+
+=> Tips:
+    => Decide the requirements of the system
+    => Draw the flow
+    => Don't jump to coding:
+        => Clarify the requirement correctly
+        => Try to see what the interviewer is expecting(yeah, that's a thing)
+        => Half of the time will go in discussion
+        => Attack the main problem(obvious pieces can be hardcoded)
+            => While coding the behaviour only you'll code the rest of the components
+        => Use your IDE to the fullest if given the chance or be too good at typing and formatting
+
+
+    
